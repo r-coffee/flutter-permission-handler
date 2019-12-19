@@ -9,28 +9,20 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "AudioVideoPermissionStrategy.h"
+#import "Codec.h"
 #import "ContactPermissionStrategy.h"
-#import "EventPermissionStrategy.h"
-#import "LocationPermissionStrategy.h"
-#import "MediaLibraryPermissionStrategy.h"
-#import "PermissionStrategy.h"
-#import "PhonePermissionStrategy.h"
-#import "PhotoPermissionStrategy.h"
-#import "SensorPermissionStrategy.h"
-#import "SpeechPermissionStrategy.h"
-#import "StoragePermissionStrategy.h"
-#import "UnknownPermissionStrategy.h"
 #import "NotificationPermissionStrategy.h"
 #import "PermissionHandlerEnums.h"
-#import "Codec.h"
+#import "PhotoPermissionStrategy.h"
+#import "UnknownPermissionStrategy.h"
 
 typedef void (^PermissionRequestCompletion)(NSDictionary *permissionRequestResults);
 
 @interface PermissionManager : NSObject
 
 - (instancetype)initWithStrategyInstances;
-- (void)requestPermissions:(NSArray *)permissions completion:(PermissionRequestCompletion)completion;
+- (void)requestPermissions:(NSArray *)permissions
+                completion:(PermissionRequestCompletion)completion;
 
 + (void)checkPermissionStatus:(enum PermissionGroup)permission result:(FlutterResult)result;
 + (void)checkServiceStatus:(enum PermissionGroup)permission result:(FlutterResult)result;
